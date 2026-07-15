@@ -383,9 +383,10 @@ section { padding: 88px 0; }
 .hire-card p { font-size: 15px; color: var(--muted); }
 
 /* ---------- salary grid ---------- */
-.salary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 960px) { .salary-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .salary-grid { grid-template-columns: 1fr; } }
+.salary-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 1080px) { .salary-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 720px) { .salary-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .salary-grid { grid-template-columns: 1fr; } }
 .sal-tile {
   background: var(--card); border: 1px solid var(--line); border-radius: 14px;
   padding: 24px 24px 0; box-shadow: var(--shadow);
@@ -397,8 +398,8 @@ section { padding: 88px 0; }
 }
 .sal-tile .value {
   font-family: "Unbounded", sans-serif; font-weight: 700;
-  font-size: clamp(26px, 2.6vw, 33px); font-variant-numeric: tabular-nums;
-  margin: 10px 0 4px; color: var(--ink);
+  font-size: clamp(22px, 2vw, 28px); font-variant-numeric: tabular-nums;
+  margin: 10px 0 4px; color: var(--ink); white-space: nowrap;
 }
 .sal-tile .note { font-size: 13.5px; color: var(--muted); margin-bottom: 18px; }
 .sal-plot { height: 110px; display: flex; align-items: flex-end; margin-top: auto; }
@@ -515,8 +516,8 @@ section { padding: 88px 0; }
     <div class="wrap">
       <div class="section-head reveal">
         <span class="eyebrow">// працевлаштування</span>
-        <h2 id="career-title">Головна мета академії — знайти майбутніх колег</h2>
-        <p>Tech Assurance — сервісна компанія з тестування ПЗ. Нам бракує сильних QA-інженерів на власних проєктах, тому ми вирішили готувати їх самі. Курс побудовано як шлях від студента до члена нашої команди.</p>
+        <h2 id="career-title">Повний курс із працевлаштуванням у Tech Assurance</h2>
+        <p>Від першого заняття до оферу: навчання, фінальний проєкт, захист перед командою та співбесіда в Tech Assurance.</p>
       </div>
       <div class="hire-cards">
         <div class="hire-card reveal">
@@ -567,14 +568,20 @@ section { padding: 88px 0; }
       <div class="section-head reveal">
         <span class="eyebrow">// зарплати</span>
         <h2 id="salary-title">QA — професія з прозорим кар'єрним треком</h2>
-        <p>Зарплати QA-інженерів в Україні прив'язані до долара та зростають разом із досвідом. Медіанні зарплати за даними опитування DOU:</p>
+        <p>Зарплати QA-інженерів в Україні прив'язані до долара та зростають разом із досвідом — від першої ставки Trainee до рівня Senior за кілька років:</p>
       </div>
       <div class="salary-grid">
         <div class="sal-tile reveal">
+          <span class="level">QA Trainee</span>
+          <div class="value">$450</div>
+          <p class="note">старт одразу після курсу</p>
+          <div class="sal-plot"><div class="sal-bar" style="--h:14%; --bar:color-mix(in srgb, var(--accent) 32%, var(--paper));"></div></div>
+        </div>
+        <div class="sal-tile reveal">
           <span class="level">Junior QA</span>
-          <div class="value">$887</div>
-          <p class="note">старт у професії</p>
-          <div class="sal-plot"><div class="sal-bar" style="--h:28%; --bar:color-mix(in srgb, var(--accent) 45%, var(--paper));"></div></div>
+          <div class="value">$650</div>
+          <p class="note">≈ 0,5–1 рік досвіду</p>
+          <div class="sal-plot"><div class="sal-bar" style="--h:20%; --bar:color-mix(in srgb, var(--accent) 48%, var(--paper));"></div></div>
         </div>
         <div class="sal-tile reveal">
           <span class="level">Middle QA</span>
@@ -595,7 +602,7 @@ section { padding: 88px 0; }
           <div class="sal-plot"><div class="sal-bar open" style="--h:94%;"></div></div>
         </div>
       </div>
-      <p class="salary-src reveal">Медіанні зарплати QA-інженерів в Україні за <a href="https://dou.ua/lenta/articles/salary-report-qa-winter-2026/" target="_blank" rel="noopener">зарплатним опитуванням DOU, зима 2026</a>. Junior QA вперше з 2022 року зросла (+$87 за пів року); спеціалісти з автоматизацією на Java, C# або TypeScript отримують від $3&#8201;000.</p>
+      <p class="salary-src reveal">Trainee та Junior — типові стартові ставки для початківців; медіани Middle та Senior QA — за <a href="https://dou.ua/lenta/articles/salary-report-qa-winter-2026/" target="_blank" rel="noopener">зарплатним опитуванням DOU, зима 2026</a>. Спеціалісти з автоматизацією на Java, C# або TypeScript отримують від $3&#8201;000.</p>
     </div>
   </section>
 
