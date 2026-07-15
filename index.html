@@ -223,6 +223,7 @@ section { padding: 88px 0; }
 .term-body .line:nth-child(8)  { animation-delay: 3.1s; }
 .term-body .line:nth-child(9)  { animation-delay: 3.5s; }
 .term-body .line:nth-child(10) { animation-delay: 4.1s; }
+.term-body .line:nth-child(11) { animation-delay: 4.7s; }
 @keyframes rise { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .term-body .line { opacity: 1; } }
 .term .ok { color: var(--pass); }
@@ -351,7 +352,7 @@ section { padding: 88px 0; }
 @media (max-width: 960px) { .path { grid-template-columns: 1fr; } }
 .path-step {
   counter-increment: step;
-  background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
   padding: 22px 20px;
 }
 .path-step::before {
@@ -368,9 +369,53 @@ section { padding: 88px 0; }
   max-width: 72ch;
 }
 .employ-note strong { color: var(--pass); }
+.hire-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 52px; }
+@media (max-width: 900px) { .hire-cards { grid-template-columns: 1fr; } }
+.hire-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: 14px;
+  padding: 26px 26px 24px;
+}
+.hire-card .num {
+  font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 600;
+  color: var(--accent); letter-spacing: .1em;
+}
+.hire-card h3 { font-size: 17px; margin: 12px 0 8px; }
+.hire-card p { font-size: 15px; color: var(--muted); }
+
+/* ---------- salary grid ---------- */
+.salary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 960px) { .salary-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .salary-grid { grid-template-columns: 1fr; } }
+.sal-tile {
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+  padding: 24px 24px 0; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.sal-tile .level {
+  font-family: "JetBrains Mono", monospace; font-size: 11.5px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.sal-tile .value {
+  font-family: "Unbounded", sans-serif; font-weight: 700;
+  font-size: clamp(26px, 2.6vw, 33px); font-variant-numeric: tabular-nums;
+  margin: 10px 0 4px; color: var(--ink);
+}
+.sal-tile .note { font-size: 13.5px; color: var(--muted); margin-bottom: 18px; }
+.sal-plot { height: 110px; display: flex; align-items: flex-end; margin-top: auto; }
+.sal-bar {
+  width: 58px; height: var(--h); border-radius: 4px 4px 0 0;
+  background: var(--bar); transition: height .8s ease;
+}
+.sal-bar.open {
+  background: transparent;
+  border: 2px dashed color-mix(in srgb, var(--accent) 55%, transparent);
+  border-bottom: none;
+}
+.js .reveal:not(.in) .sal-bar { height: 0; }
+.salary-src { margin-top: 24px; font-size: 13.5px; color: var(--muted); max-width: 70ch; }
 
 /* ---------- apply ---------- */
-.apply { background: var(--card); border-top: 1px solid var(--line); }
+.apply { border-top: 1px solid var(--line); }
 .apply-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; }
 @media (max-width: 900px) { .apply-wrap { grid-template-columns: 1fr; gap: 40px; } }
 .apply h2 { font-size: clamp(24px, 3.2vw, 32px); margin-bottom: 18px; }
@@ -381,7 +426,7 @@ section { padding: 88px 0; }
 .field label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 7px; }
 .field input, .field textarea {
   width: 100%; font-family: inherit; font-size: 15.5px; color: var(--ink);
-  background: var(--paper); border: 1px solid var(--line); border-radius: 10px;
+  background: var(--card); border: 1px solid var(--line); border-radius: 10px;
   padding: 13px 16px; transition: border-color .15s;
 }
 .field input:focus, .field textarea:focus { border-color: var(--accent); outline: none; }
@@ -414,12 +459,11 @@ section { padding: 88px 0; }
       <span>QA Academy</span>
     </a>
     <nav class="nav" id="nav" aria-label="Основна навігація">
+      <a href="#career">Працевлаштування</a>
+      <a href="#salary">Зарплати</a>
       <a href="#about">Про курс</a>
       <a href="#format">Формат</a>
       <a href="#program">Програма</a>
-      <a href="#ai">AI у QA</a>
-      <a href="#project">Проєкт</a>
-      <a href="#career">Працевлаштування</a>
       <a class="btn btn-primary btn-sm" href="#apply">Залишити заявку</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Відкрити меню">☰</button>
@@ -432,18 +476,18 @@ section { padding: 88px 0; }
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
       <div>
-        <span class="hero-badge"><i class="dot" aria-hidden="true"></i>Відкрито запис на перший потік</span>
-        <h1 id="hero-title">Курс <em>«Manual QA Engineer»</em> від команди, що тестує реальні продукти</h1>
-        <p class="hero-sub">Практична програма підготовки Manual QA-інженерів до роботи на комерційних проєктах. Побудована на реальних процесах, інструментах і вимогах сучасних IT-компаній — без «води» та зайвої теорії.</p>
+        <span class="hero-badge"><i class="dot" aria-hidden="true"></i>Навчаємо, щоб наймати — запис на перший потік відкрито</span>
+        <h1 id="hero-title">Станьте <em>Manual QA-інженером</em> і приєднуйтеся до команди Tech Assurance</h1>
+        <p class="hero-sub">Практичний курс від сервісної QA-компанії: реальні процеси, інструменти та вимоги комерційних проєктів. Ми готуємо інженерів для власної команди — найкращі випускники отримують офер у Tech Assurance.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#apply">Записатися на курс</a>
-          <a class="btn btn-ghost" href="#program">Дивитися програму</a>
+          <a class="btn btn-ghost" href="#career">Як потрапити в команду</a>
         </div>
         <div class="hero-stats" role="list">
           <div role="listitem"><strong>2–3</strong><span>місяці навчання</span></div>
           <div role="listitem"><strong>2–3</strong><span>заняття на тиждень</span></div>
           <div role="listitem"><strong>online</strong><span>у вечірній час</span></div>
-          <div role="listitem"><strong>24</strong><span>теми програми</span></div>
+          <div role="listitem"><strong>офер</strong><span>найкращим випускникам</span></div>
         </div>
       </div>
 
@@ -459,9 +503,99 @@ section { padding: 88px 0; }
           <div class="line"><span class="ok">✓</span> SQL-запити виконано <span class="dim">9 ms</span></div>
           <div class="line"><span class="ok">✓</span> AI-інструменти застосовано <span class="dim">17 ms</span></div>
           <div class="line"><span class="ok">✓</span> фінальний проєкт захищено <span class="dim">2.4 s</span></div>
-          <div class="line result">PASS &nbsp;8/8 · готовність до роботи Junior QA</div>
+          <div class="line"><span class="ok">✓</span> співбесіду в Tech Assurance пройдено <span class="dim">45 m</span></div>
+          <div class="line result">PASS &nbsp;9/9 · offer: Junior QA Engineer</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= CAREER / HIRING ================= -->
+  <section class="band" id="career" aria-labelledby="career-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">// працевлаштування</span>
+        <h2 id="career-title">Головна мета академії — знайти майбутніх колег</h2>
+        <p>Tech Assurance — сервісна компанія з тестування ПЗ. Нам бракує сильних QA-інженерів на власних проєктах, тому ми вирішили готувати їх самі. Курс побудовано як шлях від студента до члена нашої команди.</p>
+      </div>
+      <div class="hire-cards">
+        <div class="hire-card reveal">
+          <span class="num">// хто навчає</span>
+          <h3>Курс від компанії, а не школи</h3>
+          <p>Викладають спеціалісти, які щодня тестують комерційні продукти наших клієнтів, — ви навчаєтеся у своїх потенційних колег.</p>
+        </div>
+        <div class="hire-card reveal">
+          <span class="num">// чого навчаємо</span>
+          <h3>Готуємо під власні проєкти</h3>
+          <p>Навчаємо саме того, що вимагаємо від Junior QA у власній команді, — без зайвої теорії та застарілих практик.</p>
+        </div>
+        <div class="hire-card reveal">
+          <span class="num">// що у фіналі</span>
+          <h3>Фінальний захист = співбесіда</h3>
+          <p>Ви презентуєте проєкт команді Tech Assurance. Для нас це технічна співбесіда: найкращі отримують запрошення в команду.</p>
+        </div>
+      </div>
+      <div class="path">
+        <div class="path-step reveal">
+          <h3>Навчання</h3>
+          <p>2–3 місяці практики на завданнях, що моделюють реальні проєкти</p>
+        </div>
+        <div class="path-step reveal">
+          <h3>Фінальний проєкт</h3>
+          <p>Повний цикл тестування навчального продукту в команді</p>
+        </div>
+        <div class="path-step reveal">
+          <h3>Захист</h3>
+          <p>Презентація результатів перед командою Tech Assurance</p>
+        </div>
+        <div class="path-step reveal">
+          <h3>Співбесіда</h3>
+          <p>Найкращі студенти отримують запрошення на співбесіду</p>
+        </div>
+        <div class="path-step reveal">
+          <h3>Офер</h3>
+          <p>Робота Junior QA Engineer на комерційних проєктах компанії</p>
+        </div>
+      </div>
+      <p class="employ-note reveal"><strong>А якщо офер отримають не всі?</strong> Кожен випускник у будь-якому разі виходить із готовим портфоліо, досвідом командної роботи над проєктом і підготовкою до HR- та технічних співбесід — тобто готовим до працевлаштування в будь-якій IT-компанії.</p>
+    </div>
+  </section>
+
+  <!-- ================= SALARY ================= -->
+  <section id="salary" aria-labelledby="salary-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">// зарплати</span>
+        <h2 id="salary-title">QA — професія з прозорим кар'єрним треком</h2>
+        <p>Зарплати QA-інженерів в Україні прив'язані до долара та зростають разом із досвідом. Медіанні зарплати за даними опитування DOU:</p>
+      </div>
+      <div class="salary-grid">
+        <div class="sal-tile reveal">
+          <span class="level">Junior QA</span>
+          <div class="value">$887</div>
+          <p class="note">старт у професії</p>
+          <div class="sal-plot"><div class="sal-bar" style="--h:28%; --bar:color-mix(in srgb, var(--accent) 45%, var(--paper));"></div></div>
+        </div>
+        <div class="sal-tile reveal">
+          <span class="level">Middle QA</span>
+          <div class="value">$1&#8201;800</div>
+          <p class="note">≈ 2–3 роки досвіду</p>
+          <div class="sal-plot"><div class="sal-bar" style="--h:56%; --bar:color-mix(in srgb, var(--accent) 72%, var(--paper));"></div></div>
+        </div>
+        <div class="sal-tile reveal">
+          <span class="level">Senior QA</span>
+          <div class="value">$3&#8201;200</div>
+          <p class="note">≈ 5+ років досвіду</p>
+          <div class="sal-plot"><div class="sal-bar" style="--h:100%; --bar:var(--accent);"></div></div>
+        </div>
+        <div class="sal-tile reveal">
+          <span class="level">QA + автоматизація</span>
+          <div class="value">$3&#8201;000+</div>
+          <p class="note">напрям розвитку після Manual QA · Java, C#, TypeScript</p>
+          <div class="sal-plot"><div class="sal-bar open" style="--h:94%;"></div></div>
+        </div>
+      </div>
+      <p class="salary-src reveal">Медіанні зарплати QA-інженерів в Україні за <a href="https://dou.ua/lenta/articles/salary-report-qa-winter-2026/" target="_blank" rel="noopener">зарплатним опитуванням DOU, зима 2026</a>. Junior QA вперше з 2022 року зросла (+$87 за пів року); спеціалісти з автоматизацією на Java, C# або TypeScript отримують від $3&#8201;000.</p>
     </div>
   </section>
 
@@ -618,7 +752,7 @@ section { padding: 88px 0; }
       <div class="section-head reveal" style="margin-bottom: 0;">
         <span class="eyebrow">// практичний проєкт</span>
         <h2 id="project-title">Навчальний проєкт за логікою реального клієнтського продукту</h2>
-        <p style="margin-top: 16px;">Протягом курсу кожен студент проходить повний цикл роботи QA-інженера — від аналізу вимог до захисту результатів перед командою Tech Assurance.</p>
+        <p style="margin-top: 16px;">Протягом курсу кожен студент проходить повний цикл роботи QA-інженера — від аналізу вимог до захисту результатів перед командою Tech Assurance. Захист фінального проєкту — це, по суті, ваша технічна співбесіда до нас у команду.</p>
         <div class="portfolio-note">
           <span class="mono">→ RESULT</span>
           <span>Після завершення навчання у вас будуть готові приклади робіт для власного портфоліо.</span>
@@ -664,47 +798,13 @@ section { padding: 88px 0; }
     </div>
   </section>
 
-  <!-- ================= CAREER ================= -->
-  <section id="career" aria-labelledby="career-title">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">// працевлаштування</span>
-        <h2 id="career-title">Найкращих випускників запрошуємо в команду Tech Assurance</h2>
-        <p>Ми запустили академію, бо самі шукаємо кваліфікованих QA-інженерів на наші проєкти. Ваш шлях від студента до члена команди:</p>
-      </div>
-      <div class="path">
-        <div class="path-step reveal">
-          <h3>Навчання</h3>
-          <p>2–3 місяці практики на завданнях, що моделюють реальні проєкти</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Фінальний проєкт</h3>
-          <p>Повний цикл тестування навчального продукту в команді</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Захист</h3>
-          <p>Презентація результатів перед командою Tech Assurance</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Співбесіда</h3>
-          <p>Найкращі студенти отримують запрошення на співбесіду</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Офер</h3>
-          <p>Робота Junior QA Engineer на комерційних проєктах компанії</p>
-        </div>
-      </div>
-      <p class="employ-note reveal"><strong>Tech Assurance QA Academy</strong> — це підготовка QA-інженера під вимоги реальної сервісної компанії та сучасного ринку праці. Ми зацікавлені в тому, щоб ви дійшли до фіналу сильним спеціалістом.</p>
-    </div>
-  </section>
-
   <!-- ================= APPLY ================= -->
   <section class="apply" id="apply" aria-labelledby="apply-title">
     <div class="wrap apply-wrap">
       <div class="apply-side reveal">
         <span class="eyebrow">// заявка</span>
         <h2 id="apply-title">Готові почати шлях у QA?</h2>
-        <p>Залишіть заявку — ми зв'яжемося з вами, розповімо деталі про найближчий потік, вартість і відповімо на всі запитання.</p>
+        <p>Залишіть заявку — ми зв'яжемося з вами, розповімо деталі про найближчий потік, вартість і відповімо на всі запитання. Найкращих студентів потоку запросимо на співбесіду в Tech Assurance.</p>
         <ul class="apply-contacts">
           <li><span class="mono">Web</span><a href="https://www.techassurance.agency/" target="_blank" rel="noopener">techassurance.agency</a></li>
           <li><span class="mono">Email</span><a href="mailto:hrynchukk@techassurance.agency">hrynchukk@techassurance.agency</a></li>
