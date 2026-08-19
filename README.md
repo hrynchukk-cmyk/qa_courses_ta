@@ -18,6 +18,9 @@ reverse-recruiting.html  ← послуга Reverse Recruiting
 assets/
   styles.css             ← спільна дизайн-система (токени, шапка, картки…)
   main.js                ← спільна логіка (меню, форма → mailto, анімації)
+  favicon.svg            ← фавікон (синя плитка + QA-«галочка»)
+  favicon-32.png         ← PNG-фолбек 32×32
+  apple-touch-icon.png   ← іконка для iOS (180×180)
 README.md
 ```
 
