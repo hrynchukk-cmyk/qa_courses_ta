@@ -42,3 +42,59 @@ if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-mot
 } else {
   document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
 }
+
+// карусель відгуків (скріншоти з Telegram)
+(function () {
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var pad2 = function (x) { return (x < 10 ? "0" : "") + x; };
+  document.querySelectorAll(".carousel").forEach(function (car) {
+    var track = car.querySelector(".car-track");
+    var slides = car.querySelectorAll(".car-slide");
+    var counter = car.querySelector(".car-counter");
+    var toggle = car.querySelector(".car-toggle");
+    var n = slides.length;
+    if (!track || n === 0) return;
+    var i = 0, timer = null, playing = false;
+
+    function render() {
+      track.style.transform = "translateX(" + (-i * 100) + "%)";
+      if (counter) counter.textContent = pad2(i + 1) + " / " + pad2(n);
+    }
+    function go(k) { i = (k % n + n) % n; render(); }
+    function start() {
+      if (n < 2 || reduce || timer) return;
+      timer = setInterval(function () { go(i + 1); }, 5000);
+      playing = true; if (toggle) toggle.textContent = "Пауза";
+    }
+    function stop() {
+      if (timer) { clearInterval(timer); timer = null; }
+      playing = false; if (toggle) toggle.textContent = "Відтворити";
+    }
+
+    var prev = car.querySelector(".car-prev"), next = car.querySelector(".car-next");
+    if (prev) prev.addEventListener("click", function () { stop(); go(i - 1); });
+    if (next) next.addEventListener("click", function () { stop(); go(i + 1); });
+    if (toggle) toggle.addEventListener("click", function () { playing ? stop() : start(); });
+    car.addEventListener("mouseenter", function () { if (timer) { clearInterval(timer); timer = null; } });
+    car.addEventListener("mouseleave", function () { if (playing) start(); });
+
+    // свайп на тач-екранах
+    var x0 = null;
+    car.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    car.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) { stop(); go(i + (dx < 0 ? 1 : -1)); }
+      x0 = null;
+    }, { passive: true });
+
+    // один відгук — ховаємо навігацію, показуємо просто картку
+    if (n < 2) {
+      [prev, next, counter, toggle].forEach(function (el) { if (el) el.style.display = "none"; });
+      car.style.padding = "28px 24px";
+    }
+
+    render();
+    if (n > 1) start();
+  });
+})();

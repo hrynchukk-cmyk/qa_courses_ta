@@ -472,6 +472,82 @@ section { padding: 88px 0; }
   .rr-step::before { width: 44px; height: 44px; font-size: 18px; }
 }
 
+/* відгуки: Telegram CTA + карусель скріншотів */
+.tg-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent); color: var(--accent-ink); margin-bottom: 34px;
+}
+.tg-cta svg { width: 20px; height: 20px; flex: none; }
+.tg-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px -8px var(--accent); }
+
+.carousel {
+  position: relative; background: var(--term-bg);
+  border: 1px solid var(--term-line); border-radius: 16px;
+  padding: 28px 68px; box-shadow: var(--shadow); overflow: hidden;
+}
+.car-viewport { overflow: hidden; }
+.car-track { display: flex; transition: transform .4s ease; will-change: transform; }
+.car-slide { flex: 0 0 100%; display: flex; justify-content: center; align-items: flex-start; }
+.car-slide img {
+  max-width: 100%; max-height: 620px; width: auto; height: auto;
+  border-radius: 12px; border: 1px solid var(--term-line); display: block;
+}
+.car-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  background: rgba(255,255,255,.09); border: 1px solid var(--term-line);
+  color: #fff; display: grid; place-items: center; cursor: pointer; z-index: 2;
+  font-size: 20px; line-height: 1; transition: background .15s;
+}
+.car-btn:hover { background: rgba(255,255,255,.18); }
+.car-prev { left: 14px; }
+.car-next { right: 14px; }
+.car-counter {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  font-family: "JetBrains Mono", monospace; font-size: 12px; color: #cdd9e8;
+  background: rgba(0,0,0,.45); padding: 5px 14px; border-radius: 999px; letter-spacing: .05em;
+}
+.car-toggle {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  font-family: "JetBrains Mono", monospace; font-size: 11.5px; color: #cdd9e8;
+  background: rgba(0,0,0,.45); border: 1px solid var(--term-line);
+  padding: 5px 12px; border-radius: 999px; cursor: pointer;
+}
+.car-toggle:hover { background: rgba(0,0,0,.65); }
+@media (max-width: 560px) {
+  .carousel { padding: 18px 12px 42px; }
+  .car-btn { width: 38px; height: 38px; font-size: 17px; }
+  .car-prev { left: 8px; } .car-next { right: 8px; }
+}
+
+/* картка відгуку у стилі Telegram-повідомлення (фіксовано світла — як скріншот) */
+.tg-card {
+  max-width: 560px; width: 100%;
+  background: #ffffff; color: #14212b;
+  border-radius: 14px; padding: 22px 24px;
+  box-shadow: 0 12px 34px -14px rgba(0, 0, 0, .55);
+  text-align: left; font-size: 15px; line-height: 1.62;
+}
+.tg-card .tg-head {
+  display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px;
+  padding-left: 12px; border-left: 3px solid #2b93e0;
+}
+.tg-card .tg-chan { color: #2b93e0; font-weight: 700; font-size: 14.5px; }
+.tg-card .tg-fwd { color: #5b7387; font-size: 13px; }
+.tg-card .tg-body p { margin-bottom: 11px; }
+.tg-card .tg-body p:last-child { margin-bottom: 0; }
+.tg-card .tg-foot {
+  display: flex; align-items: center; gap: 14px;
+  margin-top: 16px; padding-top: 13px; border-top: 1px solid #e6eef4;
+}
+.tg-card .tg-react {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #eef4fb; border-radius: 999px; padding: 3px 11px;
+  font-size: 13px; font-weight: 600; color: #24405a;
+}
+.tg-card .tg-meta { margin-left: auto; color: #90a4b4; font-size: 12.5px; white-space: nowrap; }
+@media (max-width: 560px) { .tg-card { padding: 18px; font-size: 14.5px; } }
+
 /* побажання кандидата: картки-чипи */
 .wish-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
 .wish {
