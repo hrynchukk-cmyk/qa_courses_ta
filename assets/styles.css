@@ -587,6 +587,42 @@ section { padding: 88px 0; }
 .cp-arrow { color: var(--muted); font-size: 18px; padding-bottom: 3px; }
 .case-desc { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
 
+/* ---------- ціни / тарифи ---------- */
+.price-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+@media (max-width: 900px) { .price-tiers { grid-template-columns: 1fr; } }
+.ptier {
+  position: relative; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 16px;
+  padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 16px;
+}
+.ptier.is-popular { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), var(--shadow); }
+.ptier-flag {
+  position: absolute; top: -12px; left: 26px;
+  font-family: "JetBrains Mono", monospace; font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent-ink); background: var(--accent);
+  padding: 5px 13px; border-radius: 999px;
+}
+.ptier-flag.alt { background: var(--warn); color: #20160a; left: auto; right: 26px; }
+.ptier h3 { font-size: 20px; }
+.pt-who { color: var(--muted); font-size: 14.5px; }
+.pt-price { display: flex; align-items: baseline; gap: 9px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); }
+.pt-amt { font-family: "Unbounded", sans-serif; font-weight: 700; font-size: 38px; color: var(--accent); font-variant-numeric: tabular-nums; }
+.pt-unit { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.pt-fee { font-size: 14.5px; font-weight: 600; color: var(--pass); }
+.pt-fee.none { color: var(--muted); font-weight: 500; }
+.ptier ul { list-style: none; display: grid; gap: 9px; }
+.ptier li { position: relative; padding-left: 24px; font-size: 14.5px; color: var(--muted); }
+.ptier li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--pass); font-weight: 700; }
+.ptier li.pt-base { color: var(--ink); font-weight: 600; }
+.ptier li.pt-base::before { content: "↳"; color: var(--accent); }
+.ptier .btn { margin-top: auto; width: 100%; }
+.price-note {
+  margin-top: 26px; font-size: 14px; color: var(--muted); max-width: 74ch;
+  display: flex; gap: 10px; align-items: flex-start;
+}
+.price-note .mono { color: var(--accent); font-weight: 600; flex: none; }
+
 /* побажання кандидата: картки-чипи */
 .wish-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
 .wish {
