@@ -1,5 +1,15 @@
 // Tech Assurance — спільна логіка для всіх сторінок
 
+// аналітика: надсилаємо кастомну подію у Vercel Web Analytics (якщо доступна)
+function track(name) {
+  try { if (window.va) window.va("event", { name: name }); } catch (e) {}
+}
+// кліки по елементах із data-va (напр. «Запланувати дзвінок», «Як це працює»)
+document.addEventListener("click", function (e) {
+  var el = e.target.closest ? e.target.closest("[data-va]") : null;
+  if (el) track(el.getAttribute("data-va"));
+});
+
 // мобільне меню
 var toggle = document.getElementById("navToggle");
 var nav = document.getElementById("nav");
@@ -21,6 +31,7 @@ var form = document.querySelector("form[data-mailto]");
 if (form) {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    track("apply_submit");
     var email = form.getAttribute("data-mailto");
     var prefix = form.getAttribute("data-subject") || "Заявка";
     var get = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ""; };
