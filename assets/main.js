@@ -26,7 +26,7 @@ if (toggle && nav) {
   });
 }
 
-// форма заявки -> mailto (тема й адреса задаються через data-атрибути форми)
+// форма заявки -> mailto (тема й адреса — через data-атрибути; поля читаються за підписами)
 var form = document.querySelector("form[data-mailto]");
 if (form) {
   form.addEventListener("submit", function (e) {
@@ -34,10 +34,17 @@ if (form) {
     track("apply_submit");
     var email = form.getAttribute("data-mailto");
     var prefix = form.getAttribute("data-subject") || "Заявка";
-    var get = function (n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ""; };
-    var name = get("name"), contact = get("contact"), message = get("message");
-    var subject = encodeURIComponent(prefix + " — " + name);
-    var body = encodeURIComponent("Ім'я: " + name + "\nКонтакт: " + contact + (message ? "\n\n" + message : ""));
+    var lines = [], first = "";
+    form.querySelectorAll("input[name], textarea[name]").forEach(function (el) {
+      var val = (el.value || "").trim();
+      if (!val) return;
+      var lbl = el.id ? form.querySelector('label[for="' + el.id + '"]') : null;
+      var label = lbl ? (lbl.firstChild ? lbl.firstChild.textContent : lbl.textContent).trim() : el.name;
+      if (!first) first = val;
+      lines.push(label + ": " + val);
+    });
+    var subject = encodeURIComponent(prefix + (first ? " — " + first : ""));
+    var body = encodeURIComponent(lines.join("\n"));
     window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
   });
 }

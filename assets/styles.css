@@ -434,12 +434,19 @@ section { padding: 88px 0; }
 /* ---------- footer ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 36px 0; }
 .site-footer .wrap {
+  display: flex; flex-direction: column; gap: 18px; align-items: stretch;
+}
+.footer-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.footer-nav a { color: var(--muted); font-size: 14px; text-decoration: none; transition: color .15s; }
+.footer-nav a:hover { color: var(--accent); }
+.footer-nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+.footer-meta {
   display: flex; justify-content: space-between; align-items: center;
   gap: 20px; flex-wrap: wrap;
 }
 .site-footer p { font-size: 14px; color: var(--muted); }
-.site-footer a { color: var(--muted); }
-.site-footer a:hover { color: var(--accent); }
+.footer-meta a { color: var(--muted); }
+.footer-meta a:hover { color: var(--accent); }
 
 /* scroll reveal — застосовується лише коли доступний JS (клас .js на <html>) */
 .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
