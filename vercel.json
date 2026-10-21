@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/recruitment.html", "destination": "/", "permanent": true }
+  ]
+}

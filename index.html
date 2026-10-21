@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tech Assurance QA Academy — курс «Manual QA Engineer»</title>
+<title>Tech Assurance Recruitment — найм для бізнесу</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="description" content="Практична програма підготовки Manual QA-інженерів до роботи на реальних комерційних проєктах. Онлайн, 2–3 місяці, з можливістю працевлаштування в Tech Assurance.">
+<meta name="description" content="Tech Assurance Recruitment — підбір персоналу для бізнесу. Повний цикл: від брифу вакансії до виходу кандидата. Практикуюча QA/IT-команда з власним пулом талантів, передвідбір і гарантія заміни.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -21,18 +21,15 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Tech Assurance QA Academy — на початок сторінки">
+    <a class="logo" href="index.html" aria-label="Tech Assurance — на головну">
       <strong>TECH ASSURANCE</strong>
-      <span>QA Academy</span>
+      <span>Recruitment</span>
     </a>
     <nav class="nav" id="nav" aria-label="Основна навігація">
-      <a href="#career">Працевлаштування</a>
-      <a href="#salary">Зарплати</a>
-      <a href="#about">Про курс</a>
-      <a href="#format">Формат</a>
-      <a href="#program">Програма</a>
-      <a href="reverse-recruiting.html">Reverse Recruiting</a>
-      <a class="btn btn-primary btn-sm" href="#apply">Залишити заявку</a>
+      <a href="#roles">Кого наймаємо</a>
+      <a href="#process">Як це працює</a>
+      <a href="reverse-recruiting.html">Для кандидатів</a>
+      <a class="btn btn-primary btn-sm" href="#apply" data-va="recruit_vacancy_nav">Залишити вакансію</a>
     </nav>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Відкрити меню">☰</button>
   </div>
@@ -44,331 +41,129 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
       <div>
-        <span class="hero-badge"><i class="dot" aria-hidden="true"></i>Навчаємо, щоб наймати — запис на перший потік відкрито</span>
-        <h1 id="hero-title">Станьте <em>Manual QA-інженером</em> і приєднуйтеся до команди Tech Assurance</h1>
-        <p class="hero-sub">Практичний курс від сервісної QA-компанії: реальні процеси, інструменти та вимоги комерційних проєктів. Ми готуємо інженерів для власної команди — найкращі випускники отримують офер у Tech Assurance.</p>
+        <span class="hero-badge"><i class="dot" aria-hidden="true"></i>Recruitment для бізнесу — наймаємо під ваші вакансії</span>
+        <h1 id="hero-title">Наймаємо людей, які <em>рухають ваш бізнес</em></h1>
+        <p class="hero-sub">Повний цикл підбору для вашої компанії: від брифу вакансії до виходу кандидата. Ми практикуюча QA/IT-команда з власним пулом талантів — тож шукаємо швидше й оцінюємо кандидатів по суті.</p>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="#apply">Записатися на курс</a>
-          <a class="btn btn-ghost" href="#career">Як потрапити в команду</a>
+          <a class="btn btn-primary" href="#apply" data-va="recruit_vacancy">Залишити вакансію</a>
+          <a class="btn btn-ghost" href="https://calendly.com/team-techassurance/30min" target="_blank" rel="noopener" data-va="recruit_call">Запланувати дзвінок</a>
         </div>
         <div class="hero-stats" role="list">
-          <div role="listitem"><strong>2–3</strong><span>місяці навчання</span></div>
-          <div role="listitem"><strong>2–3</strong><span>заняття на тиждень</span></div>
-          <div role="listitem"><strong>online</strong><span>у вечірній час</span></div>
-          <div role="listitem"><strong>офер</strong><span>найкращим випускникам</span></div>
+          <div role="listitem"><strong>повний</strong><span>цикл підбору</span></div>
+          <div role="listitem"><strong>власний</strong><span>пул кандидатів</span></div>
+          <div role="listitem"><strong>гарантія</strong><span>заміни кандидата</span></div>
+          <div role="listitem"><strong>будь-які</strong><span>ролі за запитом</span></div>
         </div>
       </div>
 
       <div class="term" aria-hidden="true">
-        <div class="term-bar"><i></i><i></i><i></i><span>qa-academy — test run</span></div>
+        <div class="term-bar"><i></i><i></i><i></i><span>ta-hire — pipeline</span></div>
         <div class="term-body">
-          <div class="line"><span class="cmd">$ ta-academy run --course manual-qa</span></div>
-          <div class="line"><span class="ok">✓</span> вимоги проаналізовано <span class="dim">12 ms</span></div>
-          <div class="line"><span class="ok">✓</span> чекліст підготовлено <span class="dim">8 ms</span></div>
-          <div class="line"><span class="ok">✓</span> тест-кейси створено <span class="dim">21 ms</span></div>
-          <div class="line"><span class="warn-t">⚠</span> знайдено 3 дефекти → баг-репорти оформлено</div>
-          <div class="line"><span class="ok">✓</span> API протестовано в Postman <span class="dim">34 ms</span></div>
-          <div class="line"><span class="ok">✓</span> SQL-запити виконано <span class="dim">9 ms</span></div>
-          <div class="line"><span class="ok">✓</span> AI-інструменти застосовано <span class="dim">17 ms</span></div>
-          <div class="line"><span class="ok">✓</span> фінальний проєкт захищено <span class="dim">2.4 s</span></div>
-          <div class="line"><span class="ok">✓</span> співбесіду в Tech Assurance пройдено <span class="dim">45 m</span></div>
-          <div class="line result">PASS &nbsp;9/9 · offer: Junior QA Engineer</div>
+          <div class="line"><span class="cmd">$ ta-hire run --role your-vacancy</span></div>
+          <div class="line"><span class="ok">✓</span> бриф вакансії прийнято <span class="dim">brief</span></div>
+          <div class="line"><span class="ok">✓</span> власний пул перевірено <span class="dim">pool</span></div>
+          <div class="line"><span class="ok">✓</span> ринок опрацьовано <span class="dim">search</span></div>
+          <div class="line"><span class="ok">✓</span> кандидатів передвідібрано <span class="dim">screen</span></div>
+          <div class="line"><span class="ok">✓</span> шортліст зібрано <span class="dim">shortlist</span></div>
+          <div class="line result">HIRE · перевірені кандидати готові</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= CAREER / HIRING ================= -->
-  <section class="band" id="career" aria-labelledby="career-title">
+  <!-- ================= ROLES ================= -->
+  <section class="band" id="roles" aria-labelledby="roles-title">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">// працевлаштування</span>
-        <h2 id="career-title">Повний курс із працевлаштуванням у Tech Assurance</h2>
-        <p>Від першого заняття до оферу: навчання, фінальний проєкт, захист перед командою та співбесіда в Tech Assurance.</p>
+        <span class="eyebrow">// кого наймаємо</span>
+        <h2 id="roles-title">Закриваємо ролі будь-якої складності</h2>
+        <p>Найсильніші ми в IT та QA — бо самі з цієї сфери. Але підбираємо й суміжні, і нетехнічні ролі: сформулюйте запит — знайдемо потрібних людей.</p>
+      </div>
+      <div class="wish-grid">
+        <div class="wish reveal"><span class="ic" aria-hidden="true">QA</span>QA та тестування</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">&lt;/&gt;</span>Front-end розробка</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">{ }</span>Back-end розробка</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">⚙</span>DevOps та інфраструктура</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">◎</span>Product та Project менеджмент</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">▤</span>Data та аналітика</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">◳</span>Design (UI / UX)</div>
+        <div class="wish reveal"><span class="ic" aria-hidden="true">+</span>Та будь-які ролі за запитом</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">// як це працює</span>
+        <h2 id="process-title">Від брифу вакансії — до виходу кандидата</h2>
+        <p>Прозорий процес, у якому ми беремо на себе пошук і передвідбір, а ви спілкуєтесь лише з готовим шортлістом.</p>
+      </div>
+      <div class="rr-steps">
+        <div class="rr-step reveal"><div><h3>Бриф вакансії</h3><p>Розбираємо роль, вимоги, культуру команди, вилку та терміни — щоб шукати точно, а не «приблизно».</p></div></div>
+        <div class="rr-step reveal"><div><h3>Пошук і передвідбір</h3><p>Задіюємо власний пул кандидатів і активний пошук на ринку, оцінюємо навички по суті, а не за ключовими словами.</p></div></div>
+        <div class="rr-step reveal"><div><h3>Шортліст</h3><p>Передаємо кілька перевірених кандидатів зі структурованою оцінкою — економимо час вашої команди на співбесіди.</p></div></div>
+        <div class="rr-step reveal"><div><h3>Інтерв'ю на вашому боці</h3><p>Ви спілкуєтесь із фіналістами й ухвалюєте рішення, а ми координуємо процес і зворотний зв'язок.</p></div></div>
+        <div class="rr-step reveal"><div><h3>Офер і вихід</h3><p>Допомагаємо з офером і переговорами, супроводжуємо кандидата аж до виходу на роботу.</p></div></div>
+        <div class="rr-step reveal"><div><h3>Гарантійний період</h3><p>Якщо кандидат не підійшов або пішов протягом гарантійного терміну — безкоштовно замінюємо.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY ================= -->
+  <section class="band" id="why" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">// чому ми</span>
+        <h2 id="why-title">Чому наймати через Tech Assurance</h2>
+        <p>Ми не класичне агентство «за резюме». Ми практикуюча tech-команда, яка розуміє ролі зсередини.</p>
       </div>
       <div class="hire-cards">
         <div class="hire-card reveal">
-          <span class="num">// хто навчає</span>
-          <h3>Курс від компанії, а не школи</h3>
-          <p>Викладають спеціалісти, які щодня тестують комерційні продукти наших клієнтів, — ви навчаєтеся у своїх потенційних колег.</p>
+          <span class="num">// експертиза</span>
+          <h3>Розуміємо ролі зсередини</h3>
+          <p>Самі щодня працюємо в QA/IT, тому оцінюємо кандидатів по суті, а не лише за збігом ключових слів у резюме.</p>
         </div>
         <div class="hire-card reveal">
-          <span class="num">// чого навчаємо</span>
-          <h3>Готуємо під власні проєкти</h3>
-          <p>Навчаємо саме того, що вимагаємо від Junior QA у власній команді, — без зайвої теорії та застарілих практик.</p>
+          <span class="num">// швидкість</span>
+          <h3>Власна база кандидатів</h3>
+          <p>Напрацьована база фахівців та активний пошук дають готовий шортліст швидше, ніж пошук із нуля.</p>
         </div>
         <div class="hire-card reveal">
-          <span class="num">// що у фіналі</span>
-          <h3>Фінальний захист = співбесіда</h3>
-          <p>Ви презентуєте проєкт команді Tech Assurance. Для нас це технічна співбесіда: найкращі отримують запрошення в команду.</p>
+          <span class="num">// без ризику</span>
+          <h3>Передвідбір і гарантія заміни</h3>
+          <p>Даємо перевірених кандидатів, а не потік резюме, і безкоштовно замінюємо, якщо кандидат не підійшов.</p>
         </div>
       </div>
-      <div class="path">
-        <div class="path-step reveal">
-          <h3>Навчання</h3>
-          <p>2–3 місяці практики на завданнях, що моделюють реальні проєкти</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Фінальний проєкт</h3>
-          <p>Повний цикл тестування навчального продукту в команді</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Захист</h3>
-          <p>Презентація результатів перед командою Tech Assurance</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Співбесіда</h3>
-          <p>Найкращі студенти отримують запрошення на співбесіду</p>
-        </div>
-        <div class="path-step reveal">
-          <h3>Офер</h3>
-          <p>Робота Junior QA Engineer на комерційних проєктах компанії</p>
-        </div>
-      </div>
-      <p class="employ-note reveal"><strong>А якщо офер отримають не всі?</strong> Кожен випускник у будь-якому разі виходить із готовим портфоліо, досвідом командної роботи над проєктом і підготовкою до HR- та технічних співбесід — тобто готовим до працевлаштування в будь-якій IT-компанії.</p>
     </div>
   </section>
 
-  <!-- ================= SALARY ================= -->
-  <section id="salary" aria-labelledby="salary-title">
+  <!-- ================= MODEL ================= -->
+  <section id="model" aria-labelledby="model-title">
     <div class="wrap">
       <div class="section-head reveal">
-        <span class="eyebrow">// зарплати</span>
-        <h2 id="salary-title">QA — професія з прозорим кар'єрним треком</h2>
-        <p>Зарплати QA-інженерів в Україні прив'язані до долара та зростають разом із досвідом — від першої ставки Trainee до рівня Senior за кілька років:</p>
+        <span class="eyebrow">// модель співпраці</span>
+        <h2 id="model-title">Платите за результат, а не за процес</h2>
+        <p>Прозора співпраця без ризику для бізнесу. Точні умови залежать від ролі та складності — узгоджуємо на першому дзвінку.</p>
       </div>
-      <div class="salary-grid">
-        <div class="sal-tile reveal">
-          <span class="level">QA Trainee</span>
-          <div class="value">$450</div>
-          <p class="note">старт одразу після курсу</p>
-          <div class="sal-plot"><div class="sal-bar" style="--h:14%; --bar:color-mix(in srgb, var(--accent) 32%, var(--paper));"></div></div>
+      <div class="hire-cards">
+        <div class="hire-card reveal">
+          <span class="num">// оплата</span>
+          <h3>Оплата за успішний найм</h3>
+          <p>Винагорода — коли кандидат виходить на роботу, а не за сам процес пошуку.</p>
         </div>
-        <div class="sal-tile reveal">
-          <span class="level">Junior QA</span>
-          <div class="value">$650</div>
-          <p class="note">≈ 0,5–1 рік досвіду</p>
-          <div class="sal-plot"><div class="sal-bar" style="--h:20%; --bar:color-mix(in srgb, var(--accent) 48%, var(--paper));"></div></div>
+        <div class="hire-card reveal">
+          <span class="num">// захист</span>
+          <h3>Гарантія заміни</h3>
+          <p>Якщо кандидат не підійшов або пішов протягом гарантійного періоду — замінюємо безкоштовно.</p>
         </div>
-        <div class="sal-tile reveal">
-          <span class="level">Middle QA</span>
-          <div class="value">$1&#8201;800</div>
-          <p class="note">≈ 2–3 роки досвіду</p>
-          <div class="sal-plot"><div class="sal-bar" style="--h:56%; --bar:color-mix(in srgb, var(--accent) 72%, var(--paper));"></div></div>
-        </div>
-        <div class="sal-tile reveal">
-          <span class="level">Senior QA</span>
-          <div class="value">$3&#8201;200</div>
-          <p class="note">≈ 5+ років досвіду</p>
-          <div class="sal-plot"><div class="sal-bar" style="--h:100%; --bar:var(--accent);"></div></div>
-        </div>
-        <div class="sal-tile reveal">
-          <span class="level">QA + автоматизація</span>
-          <div class="value">$3&#8201;000+</div>
-          <p class="note">напрям розвитку після Manual QA · Java, C#, TypeScript</p>
-          <div class="sal-plot"><div class="sal-bar open" style="--h:94%;"></div></div>
+        <div class="hire-card reveal">
+          <span class="num">// гнучкість</span>
+          <h3>Умови під вашу роль</h3>
+          <p>Для складних або нішевих позицій підбираємо формат співпраці індивідуально.</p>
         </div>
       </div>
-      <p class="salary-src reveal">Trainee та Junior — типові стартові ставки для початківців; медіани Middle та Senior QA — за <a href="https://dou.ua/lenta/articles/salary-report-qa-winter-2026/" target="_blank" rel="noopener">зарплатним опитуванням DOU, зима 2026</a>. Спеціалісти з автоматизацією на Java, C# або TypeScript отримують від $3&#8201;000.</p>
-    </div>
-  </section>
-
-  <!-- ================= ABOUT / SKILLS ================= -->
-  <section class="band" id="about" aria-labelledby="about-title">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">// про курс</span>
-        <h2 id="about-title">Ми навчаємо не лише тестуванню</h2>
-        <p>Наша мета — не просто пояснити, як створювати тест-кейси, знаходити дефекти й оформлювати баг-репорти. Ми готуємо спеціаліста, який мислить як QA-інженер: ставить правильні запитання, бачить ризики, аналізує продукт і відповідає за якість власної роботи.</p>
-      </div>
-      <div class="skills-grid">
-        <div class="skill reveal"><span class="tick">✓</span>Розуміє процес розробки програмного забезпечення</div>
-        <div class="skill reveal"><span class="tick">✓</span>Вміє аналізувати вимоги та знаходити в них ризики</div>
-        <div class="skill reveal"><span class="tick">✓</span>Працює з основними QA-інструментами</div>
-        <div class="skill reveal"><span class="tick">✓</span>Розуміє принципи роботи вебзастосунків, API та баз даних</div>
-        <div class="skill reveal"><span class="tick">✓</span>Використовує AI-інструменти для підвищення ефективності</div>
-        <div class="skill reveal"><span class="tick">✓</span>Вміє аргументувати свої рішення</div>
-        <div class="skill reveal"><span class="tick">✓</span>Професійно комунікує з командою та замовником</div>
-        <div class="skill reveal"><span class="tick">✓</span>Відповідально працює з дедлайнами</div>
-        <div class="skill reveal"><span class="tick">✓</span>Розуміє очікування бізнесу від QA</div>
-        <div class="skill reveal"><span class="tick">✓</span>Готовий до роботи на реальному комерційному проєкті</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= FORMAT ================= -->
-  <section id="format" aria-labelledby="format-title">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">// формат навчання</span>
-        <h2 id="format-title">Онлайн, у вечірній час — сумісно з роботою</h2>
-      </div>
-      <dl class="spec">
-        <div class="spec-item reveal"><dt>Тривалість</dt><dd>2–3 місяці</dd></div>
-        <div class="spec-item reveal"><dt>Розклад</dt><dd>2–3 заняття на тиждень, увечері</dd></div>
-        <div class="spec-item reveal"><dt>Формат</dt><dd>Онлайн-заняття + записи всіх лекцій</dd></div>
-        <div class="spec-item reveal"><dt>Групи</dt><dd>Невеликі навчальні групи</dd></div>
-        <div class="spec-item reveal"><dt>Практика</dt><dd>Домашні завдання після кожного модуля</dd></div>
-        <div class="spec-item reveal"><dt>Зворотний зв'язок</dt><dd>Перевірка робіт викладачем персонально</dd></div>
-        <div class="spec-item reveal"><dt>Менторство</dt><dd>Консультації з ментором</dd></div>
-        <div class="spec-item reveal"><dt>Фінал</dt><dd>Командна робота над фінальним проєктом</dd></div>
-      </dl>
-      <p class="format-note reveal">Основний акцент програми — <strong>практика</strong>. Студенти працюють із завданнями, які моделюють реальні ситуації на комерційних проєктах.</p>
-    </div>
-  </section>
-
-  <!-- ================= PROGRAM ================= -->
-  <section class="band" id="program" aria-labelledby="program-title">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">// програма курсу</span>
-        <h2 id="program-title">24 теми — від основ тестування до підготовки до співбесіди</h2>
-        <p>Програму згруповано в шість модулів. Після кожного — домашнє завдання з персональною перевіркою.</p>
-      </div>
-      <div class="modules">
-        <article class="module reveal">
-          <span class="module-code">M01 / FOUNDATIONS</span>
-          <h3>Основи тестування</h3>
-          <ul>
-            <li>Основи тестування програмного забезпечення</li>
-            <li>Роль QA у продуктовій і сервісній IT-компанії</li>
-            <li>Життєвий цикл розробки ПЗ (SDLC)</li>
-            <li>Життєвий цикл тестування (STLC)</li>
-            <li>Види та рівні тестування</li>
-            <li>Техніки тест-дизайну</li>
-          </ul>
-        </article>
-        <article class="module reveal">
-          <span class="module-code">M02 / DOCUMENTATION</span>
-          <h3>Вимоги та тестова документація</h3>
-          <ul>
-            <li>Аналіз і перевірка вимог</li>
-            <li>Створення чеклістів</li>
-            <li>Створення тест-кейсів</li>
-            <li>Написання якісних баг-репортів</li>
-            <li>Підготовка тестової документації</li>
-            <li>Робота з Jira та Confluence</li>
-          </ul>
-        </article>
-        <article class="module reveal">
-          <span class="module-code">M03 / TECH SKILLS</span>
-          <h3>Технічна база</h3>
-          <ul>
-            <li>Тестування вебзастосунків</li>
-            <li>Робота з Chrome DevTools</li>
-            <li>Основи HTML і CSS для тестувальника</li>
-            <li>Основи клієнт-серверної архітектури</li>
-            <li>API-тестування за допомогою Postman</li>
-            <li>Основи баз даних і SQL</li>
-            <li>Основи тестування мобільних застосунків</li>
-          </ul>
-        </article>
-        <article class="module reveal">
-          <span class="module-code">M04 / PROCESS</span>
-          <h3>Види тестування та процеси</h3>
-          <ul>
-            <li>Usability, compatibility та regression testing</li>
-            <li>Робота QA у Scrum і Kanban-командах</li>
-            <li>Комунікація з розробниками, менеджерами та замовниками</li>
-          </ul>
-        </article>
-        <article class="module reveal">
-          <span class="module-code">M05 / AI TOOLS</span>
-          <h3>AI у роботі QA-інженера</h3>
-          <ul>
-            <li>Практичне використання AI у щоденних задачах</li>
-            <li>Правильне формування запитів до AI</li>
-            <li>Перевірка відповідей та розуміння обмежень AI</li>
-          </ul>
-        </article>
-        <article class="module reveal">
-          <span class="module-code">M06 / CAREER</span>
-          <h3>Кар'єрна підготовка</h3>
-          <ul>
-            <li>Підготовка до HR-співбесіди</li>
-            <li>Підготовка до технічної співбесіди</li>
-            <li>Портфоліо на основі фінального проєкту</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= AI ================= -->
-  <section class="ai-band" id="ai" aria-labelledby="ai-title">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">// окремий модуль</span>
-        <h2 id="ai-title">AI у QA та сучасному тестуванні</h2>
-        <p>Окремий модуль присвячено практичному використанню штучного інтелекту в роботі QA-інженера. Студенти навчаться застосовувати AI для:</p>
-      </div>
-      <div class="ai-grid">
-        <div class="ai-chip reveal"><span class="mono">01</span>Аналіз та перевірка вимог</div>
-        <div class="ai-chip reveal"><span class="mono">02</span>Пошук суперечностей і пропущених сценаріїв</div>
-        <div class="ai-chip reveal"><span class="mono">03</span>Генерація ідей для тестування</div>
-        <div class="ai-chip reveal"><span class="mono">04</span>Створення чеклістів і тест-кейсів</div>
-        <div class="ai-chip reveal"><span class="mono">05</span>Підготовка тестових даних</div>
-        <div class="ai-chip reveal"><span class="mono">06</span>Покращення баг-репортів</div>
-        <div class="ai-chip reveal"><span class="mono">07</span>Формування SQL-запитів</div>
-        <div class="ai-chip reveal"><span class="mono">08</span>Робота з API-документацією</div>
-        <div class="ai-chip reveal"><span class="mono">09</span>Пояснення технічних понять</div>
-        <div class="ai-chip reveal"><span class="mono">10</span>Аналіз логів і повідомлень про помилки</div>
-        <div class="ai-chip reveal"><span class="mono">11</span>Підготовка до технічних співбесід</div>
-        <div class="ai-chip reveal"><span class="mono">12</span>Оптимізація рутинних завдань</div>
-      </div>
-      <p class="ai-note reveal"><strong>AI — не заміна QA-інженера, а робочий інструмент.</strong> Окрему увагу приділяємо правильному формуванню запитів, перевірці отриманих відповідей та розумінню обмежень штучного інтелекту.</p>
-    </div>
-  </section>
-
-  <!-- ================= PROJECT ================= -->
-  <section id="project" aria-labelledby="project-title">
-    <div class="wrap project-wrap">
-      <div class="section-head reveal" style="margin-bottom: 0;">
-        <span class="eyebrow">// практичний проєкт</span>
-        <h2 id="project-title">Навчальний проєкт за логікою реального клієнтського продукту</h2>
-        <p style="margin-top: 16px;">Протягом курсу кожен студент проходить повний цикл роботи QA-інженера — від аналізу вимог до захисту результатів перед командою Tech Assurance. Захист фінального проєкту — це, по суті, ваша технічна співбесіда до нас у команду.</p>
-        <div class="portfolio-note">
-          <span class="mono">→ RESULT</span>
-          <span>Після завершення навчання у вас будуть готові приклади робіт для власного портфоліо.</span>
-        </div>
-      </div>
-      <ul class="checklist reveal">
-        <li><span class="box">✓</span>Проаналізує вимоги</li>
-        <li><span class="box">✓</span>Знайде неточності та суперечності в документації</li>
-        <li><span class="box">✓</span>Підготує чеклісти</li>
-        <li><span class="box">✓</span>Створить тест-кейси</li>
-        <li><span class="box">✓</span>Проведе функціональне тестування</li>
-        <li><span class="box">✓</span>Оформить баг-репорти</li>
-        <li><span class="box">✓</span>Протестує API</li>
-        <li><span class="box">✓</span>Виконає базові SQL-запити</li>
-        <li><span class="box">✓</span>Застосує AI-інструменти для аналізу вимог і тестових сценаріїв</li>
-        <li><span class="box">✓</span>Підготує звіт про результати тестування</li>
-        <li><span class="box">✓</span>Захистить фінальний проєкт перед командою Tech Assurance</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ================= DIFFERENCE ================= -->
-  <section class="band" aria-labelledby="diff-title">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">// чим ми відрізняємось</span>
-        <h2 id="diff-title">Це не черговий теоретичний курс із Manual QA</h2>
-        <p>Програму створили спеціалісти, які щодня працюють із реальними клієнтами та комерційними проєктами. Ми знаємо, яких знань, навичок і професійних якостей компанії очікують від Junior QA. Тому під час навчання студенти вчаться:</p>
-      </div>
-      <ul class="diff-grid">
-        <li class="reveal">Працювати з неповними та суперечливими вимогами</li>
-        <li class="reveal">Знаходити не лише дефекти, а й потенційні бізнес-ризики</li>
-        <li class="reveal">Ставити правильні запитання команді та замовнику</li>
-        <li class="reveal">Аргументувати знайдені проблеми</li>
-        <li class="reveal">Відповідати за якість власної документації</li>
-        <li class="reveal">Працювати з сучасними інструментами тестування</li>
-        <li class="reveal">Ефективно використовувати AI у щоденній роботі</li>
-        <li class="reveal">Професійно комунікувати</li>
-        <li class="reveal">Працювати з дедлайнами</li>
-        <li class="reveal">Адаптуватися до нових продуктів, процесів та інструментів</li>
-        <li class="reveal">Мислити як повноцінний учасник команди розробки</li>
-      </ul>
     </div>
   </section>
 
@@ -376,28 +171,33 @@
   <section class="apply" id="apply" aria-labelledby="apply-title">
     <div class="wrap apply-wrap">
       <div class="apply-side reveal">
-        <span class="eyebrow">// заявка</span>
-        <h2 id="apply-title">Готові почати шлях у QA?</h2>
-        <p>Залишіть заявку — ми зв'яжемося з вами, розповімо деталі про найближчий потік, вартість і відповімо на всі запитання. Найкращих студентів потоку запросимо на співбесіду в Tech Assurance.</p>
+        <span class="eyebrow">// залишити вакансію</span>
+        <h2 id="apply-title">Розкажіть, кого шукаєте</h2>
+        <p>Опишіть вакансію — ми повернемось із планом пошуку та першими кандидатами. Або одразу заплануйте короткий дзвінок, щоб обговорити деталі.</p>
         <ul class="apply-contacts">
+          <li><span class="mono">Call</span><a href="https://calendly.com/team-techassurance/30min" target="_blank" rel="noopener">Запланувати дзвінок у Calendly</a></li>
           <li><span class="mono">Web</span><a href="https://www.techassurance.agency/" target="_blank" rel="noopener">techassurance.agency</a></li>
           <li><span class="mono">Email</span><a href="mailto:hrynchukk@techassurance.agency">hrynchukk@techassurance.agency</a></li>
         </ul>
       </div>
-      <form class="form reveal" id="applyForm" data-mailto="hrynchukk@techassurance.agency" data-subject="Заявка на курс Manual QA Engineer">
+      <form class="form reveal" id="applyForm" data-mailto="hrynchukk@techassurance.agency" data-subject="Запит на підбір персоналу (B2B)">
         <div class="field">
-          <label for="f-name">Ім'я та прізвище</label>
-          <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Оксана Коваленко">
+          <label for="f-company">Компанія</label>
+          <input id="f-company" name="company" type="text" required autocomplete="organization" placeholder="Назва компанії">
         </div>
         <div class="field">
-          <label for="f-contact">Email або Telegram</label>
-          <input id="f-contact" name="contact" type="text" required placeholder="you@example.com або @username">
+          <label for="f-role">Вакансія або посада</label>
+          <input id="f-role" name="role" type="text" required placeholder="Напр. Middle QA Engineer">
         </div>
         <div class="field">
-          <label for="f-message">Кілька слів про себе <span style="font-weight:400;color:var(--muted)">(необов'язково)</span></label>
-          <textarea id="f-message" name="message" placeholder="Досвід, мотивація, запитання…"></textarea>
+          <label for="f-contact">Email або Telegram для зв'язку</label>
+          <input id="f-contact" name="contact" type="text" required placeholder="you@company.com або @username">
         </div>
-        <button class="btn btn-primary" type="submit">Надіслати заявку</button>
+        <div class="field">
+          <label for="f-message">Деталі <span style="font-weight:400;color:var(--muted)">(стек, вилка, терміни — необов'язково)</span></label>
+          <textarea id="f-message" name="message" placeholder="Вимоги, рівень, зарплатна вилка, бажані терміни виходу…"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Надіслати запит</button>
         <p class="form-hint">Кнопка відкриє ваш поштовий клієнт із заповненим листом. Ми відповідаємо протягом 1–2 робочих годин.</p>
       </form>
     </div>
@@ -408,13 +208,12 @@
 <footer class="site-footer">
   <div class="wrap">
     <nav class="footer-nav" aria-label="Напрями Tech Assurance">
-      <a href="index.html" aria-current="page">Курс Manual QA</a>
+      <a href="index.html" aria-current="page">Найм для бізнесу</a>
       <a href="reverse-recruiting.html">Reverse Recruiting</a>
-      <a href="recruitment.html">Recruitment для бізнесу</a>
     </nav>
     <div class="footer-meta">
-      <p>© 2026 Tech Assurance. QA Academy — навчальний напрям компанії <a href="https://www.techassurance.agency/" target="_blank" rel="noopener">Tech Assurance</a>.</p>
-      <p class="mono" style="font-size:12px;">assure your career · start in QA</p>
+      <p>© 2026 Tech Assurance. Recruitment — підбір персоналу від компанії <a href="https://www.techassurance.agency/" target="_blank" rel="noopener">Tech Assurance</a>.</p>
+      <p class="mono" style="font-size:12px;">hire with confidence</p>
     </div>
   </div>
 </footer>
